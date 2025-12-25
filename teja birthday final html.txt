@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise TEJAAA 🎂</title>
+<style>
+/* Background with gradient animation */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(-45deg, #ff758c, #ff7eb3, #7afcff, #ffb347);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  text-align: center;
+  padding-top: 100px;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Button with border and hover glow */
+button {
+  padding: 20px 40px;
+  font-size: 22px;
+  border: 4px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  color: white;
+  font-weight: bold;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 20px #fff;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #fff, 0 0 60px #ff4081;
+}
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 1s;
+}
+
+/* Modal content with border animation */
+.modal-content {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: #fff;
+  width: 80%;
+  max-width: 450px;
+  margin: 15% auto;
+  padding: 40px;
+  border-radius: 30px;
+  border: 5px solid white;
+  text-align: center;
+  box-shadow: 0 0 50px rgba(255,255,255,0.7);
+  animation: fadeScale 1s;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeScale {
+  from {opacity: 0; transform: scale(0.5);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* Swipe page */
+#swipePage {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #f6d365, #fda085, #ff758c, #ff7eb3);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: white;
+  font-size: 28px;
+  padding-top: 150px;
+  text-align: center;
+}
+
+/* Final text */
+#finalText {
+  display: none;
+  font-size: 32px;
+  margin-top: 50px;
+  color: #fff;
+  text-shadow: 0 0 20px #fff, 0 0 40px #ff4081;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px #fff, 0 0 20px #ff4081; }
+  50% { text-shadow: 0 0 20px #fff, 0 0 40px #ff4081; }
+  100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff4081; }
+}
+
+/* GIF animation example */
+.gif-emoji {
+  font-size: 50px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px) rotate(15deg);}
+  100% { transform: translateY(0px);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉🎂 Happy Birthday TEJA VADINAA 🤗! 🎂🎉</h1>
+<div class="gif-emoji">🎁💖🥳</div>
+<button onclick="showGift()">Click Me 🎁</button>
+
+<!-- First Popup -->
+<div class="modal" id="giftBox">
+  <div class="modal-content">
+    <h2>🎁 A small gift for u tejaa from your's somu 💝</h2>
+    <button onclick="openSwipe()">Next .>/.>/.>/.>/.>/.>/.>/.>/.>/➡️</button>
+  </div>
+</div>
+
+<!-- Swipe Page -->
+<div id="swipePage">
+  👉 Swipe Right
+  <div id="finalText">
+    💖 nenu niku dhorakadamey oka gift😅. enjoy the day !! 🎁
+  </div>
+</div>
+
+<script>
+function showGift() {
+  document.getElementById("giftBox").style.display = "block";
+}
+
+function openSwipe() {
+  document.getElementById("giftBox").style.display = "none";
+  document.getElementById("swipePage").style.display = "block";
+}
+
+// Swipe detection
+let startX = 0;
+document.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
+document.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+  if (endX - startX > 80) {
+    document.getElementById("finalText").style.display = "block";
+  }
+});
+</script>
+
+</body>
+</html>
